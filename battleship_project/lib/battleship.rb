@@ -43,9 +43,12 @@ class Battleship
         pos_to_attack = @player.get_move
         did_hit = @board.attack(pos_to_attack)
         @board.print
-        puts @remaining_misses
+        
         if !did_hit
-           @remaining_misses -=1 
+           @remaining_misses -=1
+           puts @remaining_misses
+        else
+            
         end
 
 
