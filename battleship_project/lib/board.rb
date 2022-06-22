@@ -22,7 +22,7 @@ class Board
     def attack(pos_arr)
         if self[pos_arr] == :S
             self[pos_arr] = :H
-            puts "you sunk my battleship!"
+            puts "\n\nyou sunk my battleship!\n\n"
             return true
         else
             self[pos_arr] = :X
