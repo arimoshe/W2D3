@@ -7,7 +7,7 @@ class HumanPlayer
     end
 
     def get_position
-        puts "\n\nHello player #{@mark}\n\nPlease enter a position in the form of 'row column' \n(no quotes & positions start at 0)\n\n"
+        puts "\n\nHello Player #{self.mark}\n\nPlease enter a position in the form of 'row column' \n(no quotes & positions start at 0)\n\n"
         input = gets.chomp
         invalidChars = ("a".."z").to_a + ("A".."Z").to_a + "!@#$%^&*()_-+={[]}|\\\"';:/?.>,<`~".split("")
         numbersString = "0123456789" 
