@@ -1,7 +1,9 @@
 class Board
 
-    def initialize()
+    def initialize
         @grid = Array.new(3) {Array.new(3, "_")}
+       
+
     end
 
     def valid? (pos)
@@ -28,9 +30,46 @@ class Board
         end
     end
 
+    def print
+        puts
+        puts
+        @grid.map.with_index do |ele, i| 
+            if i < @grid.length-1
+                out = ele.join( "_|_")
+                puts "_" + out + "_"
+            else
+                out = ele.map { |ele| ele == "_" ? " " : ele}.join( " | ")
+                puts " " + out + " "
+            end
+        end
+        puts
+        puts
+    end
+
+    def win_row?(mark)
+        @grid.any? {|ele| ele.uniq.length == 1 && ele.uniq[0] == mark }
+    end
+
+    def win_col?(mark)
+        @grid.transpose.any? {|ele| ele.uniq.length == 1 && ele.uniq[0] == mark}
+    end
+    
+    def win_diagonal?(mark)
+        (0...@grid.length).all? do |i| 
+            self[[i,i]] == mark
+        end || (0...@grid.length).all? do |j|
+             @grid.transpose[j][j] == mark
+        end
+    end
+    
+    def win?(mark)
+        win_col?(mark) || win_row?(mark) || win_diagonal?(mark)
+    end
 
 
-
+    def empty_positions?
+        @grid.flatten.count { |ele| ele == "_"} > 0
+    end
 
 
 
