@@ -143,6 +143,7 @@ describe "Code" do
 
       # code == RGRB
       it "should not include exact matches" do
+        
         expect(code.num_near_matches(Code.new(["R", "G", "B", "B"]))).to eq(0)
         expect(code.num_near_matches(Code.new(["R", "R", "B", "B"]))).to eq(1)
         expect(code.num_near_matches(Code.new(["G", "R", "R", "R"]))).to eq(2)

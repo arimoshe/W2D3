@@ -73,6 +73,7 @@ class Game
     end
 
     def play 
+    begin    
         while @board.empty_positions?
             @board.print
             pos = @current_player.get_position(@board.legal_positions)
@@ -90,6 +91,10 @@ class Game
         @board.print
         puts "🎺 Wha Wha Whaaaa 🎺 It's a draw!"
         return ""
+        rescue RuntimeError => e
+            puts e.message
+            retry
+        end
     end
 
 

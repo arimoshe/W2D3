@@ -68,7 +68,8 @@ class Board
 
 
     def empty_positions?
-        @grid.flatten.count { |ele| ele == "_"} > 0
+        #@grid.flatten.count { |ele| ele == "_"} > 0
+        @grid.flatten.any? { |ele| ele == "_"}
     end
 
 
